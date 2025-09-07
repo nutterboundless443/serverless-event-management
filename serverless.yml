@@ -1,0 +1,36 @@
+service: serverless-event-management
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  createEvent:
+    handler: handler.createEvent
+    events:
+      - http:
+          path: events
+          method: post
+
+  getEvents:
+    handler: handler.getEvents
+    events:
+      - http:
+          path: events
+          method: get
+
+resources:
+  Resources:
+    EventsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Events
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
