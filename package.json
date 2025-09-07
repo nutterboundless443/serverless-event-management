@@ -1,7 +1,7 @@
 {
   "name": "serverless-event-management",
   "version": "1.0.0",
-  "description": "一个基于无服务器架构的事件管理平台",
+  "description": "A serverless architecture event management platform",
   "main": "handler.js",
   "scripts": {
     "deploy": "serverless deploy",
