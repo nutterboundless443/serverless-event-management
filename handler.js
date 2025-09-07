@@ -11,7 +11,7 @@ module.exports.createEvent = async (event) => {
       location: data.location,
       description: data.description,
       date: data.date,
-      participants: []
+      participants: data.participants || []
     }
   };
 
