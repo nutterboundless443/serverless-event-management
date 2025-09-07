@@ -8,7 +8,7 @@
     "remove": "serverless remove"
   },
   "dependencies": {
-    "aws-sdk": "^2.1046.0"
+    "aws-sdk": "^2.1180.0"
   },
   "devDependencies": {
     "serverless": "^2.70.0"
