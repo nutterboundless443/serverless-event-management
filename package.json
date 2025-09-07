@@ -1,0 +1,16 @@
+{
+  "name": "serverless-event-management",
+  "version": "1.0.0",
+  "description": "一个基于无服务器架构的事件管理平台",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "remove": "serverless remove"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1046.0"
+  },
+  "devDependencies": {
+    "serverless": "^2.70.0"
+  }
+}
