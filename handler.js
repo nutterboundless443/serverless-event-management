@@ -24,7 +24,7 @@ module.exports.createEvent = async (event) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to create the event!' })
+      body: JSON.stringify({ error: 'Could not create the event due to server error.' })
     };
   }
 };
