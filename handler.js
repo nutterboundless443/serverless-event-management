@@ -2,14 +2,22 @@ const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 module.exports.createEvent = async (event) => {
-  const data = JSON.parse(event.body);
+  let data;
+  try {
+    data = JSON.parse(event.body);
+  } catch (error) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Invalid JSON format in request body.' })
+    };
+  }
   const params = {
     TableName: 'Events',
     Item: {
       id: data.id,
-      name: data.name,
-      location: data.location,
-      description: data.description,
+      name: data.name || 'Unnamed Event',
+      location: data.location || 'Unknown Location',
+      description: data.description || '',
       date: data.date,
       participants: data.participants || []
     }
