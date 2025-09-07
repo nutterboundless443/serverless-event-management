@@ -26,13 +26,13 @@ module.exports.createEvent = async (event) => {
   try {
     await dynamoDb.put(params).promise();
     return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'Event created successfully!' })
+      statusCode: 201,
+      body: JSON.stringify({ message: 'Event created successfully!', eventId: data.id })
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Could not create the event due to server error.' })
+      body: JSON.stringify({ error: 'Could not create the event due to server error.', details: error.message })
     };
   }
 };
@@ -51,7 +51,7 @@ module.exports.getEvents = async () => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to get event list!' })
+      body: JSON.stringify({ error: 'Failed to get event list!', details: error.message })
     };
   }
 };
