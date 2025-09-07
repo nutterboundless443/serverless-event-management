@@ -34,8 +34,8 @@ resources:
           - AttributeName: id
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 5
+          ReadCapacityUnits: 10
+          WriteCapacityUnits: 10
         GlobalSecondaryIndexes:
           - IndexName: EventDateIndex
             KeySchema:
@@ -44,5 +44,5 @@ resources:
             Projection:
               ProjectionType: ALL
             ProvisionedThroughput:
-              ReadCapacityUnits: 5
-              WriteCapacityUnits: 5
+              ReadCapacityUnits: 10
+              WriteCapacityUnits: 10
