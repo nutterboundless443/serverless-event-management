@@ -19,12 +19,12 @@ module.exports.createEvent = async (event) => {
     await dynamoDb.put(params).promise();
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: '事件创建成功！' })
+      body: JSON.stringify({ message: 'Event created successfully!' })
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: '事件创建失败！' })
+      body: JSON.stringify({ error: 'Failed to create event!' })
     };
   }
 };
@@ -43,7 +43,7 @@ module.exports.getEvents = async () => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: '获取事件列表失败！' })
+      body: JSON.stringify({ error: 'Failed to get event list!' })
     };
   }
 };
