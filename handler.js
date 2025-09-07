@@ -11,6 +11,12 @@ module.exports.createEvent = async (event) => {
       body: JSON.stringify({ error: 'Invalid JSON format in request body.' })
     };
   }
+  if (!data.id || !data.date) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Missing required fields: id and date.' })
+    };
+  }
   const params = {
     TableName: 'Events',
     Item: {
